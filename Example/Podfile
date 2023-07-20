@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'NFZM_SRouter_Example' do
+  pod 'NFZM_SRouter', :path => '../'
+
+  target 'NFZM_SRouter_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
