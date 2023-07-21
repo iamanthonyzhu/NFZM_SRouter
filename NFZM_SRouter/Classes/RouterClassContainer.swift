@@ -7,33 +7,6 @@
 
 import Foundation
 
-extension UIViewController :RouterProtocol {
-    
-    func schemeForRouter() -> String {
-        RouterClassContainer.AssociatedKeys.defaultScheme
-    }
-    
-    func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
-        (RouterActionType.push,.rClass(clsName: NSStringFromClass(type(of: self))))
-    }
-    
-    func handleRouterAuthentication() -> RouterError {
-        .noError
-    }
-
-    func canhandle(parameters:[String:String]) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
-    }
-    
-    func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
-    }
-    
-    func handleCustomShow(sourceVC:UIViewController,targetVC:UIViewController) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
-    }
-
-}
 
 public class RouterClassContainer : NSObject {
     
