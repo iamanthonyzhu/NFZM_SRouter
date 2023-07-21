@@ -13,5 +13,8 @@ public enum RouterError: Error {
         case unlogin
     }
     case authFailure(reason:AuthFailureReason)
+    case createFailure
+    case handleJumpFailure
+
 }
 

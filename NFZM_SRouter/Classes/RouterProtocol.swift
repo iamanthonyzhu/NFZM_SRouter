@@ -14,12 +14,12 @@ public enum RouterVCType {
 }
 
 public enum RouterActionType {
-    case push
-    case present
+    case push(_ anim:Bool)
+    case present(_ anim:Bool)
     case custom
 }
 
-protocol RouterProtocol : AnyObject {
+public protocol RouterProtocol : AnyObject {
     
     func schemeForRouter() -> String
     
@@ -27,39 +27,39 @@ protocol RouterProtocol : AnyObject {
     
     func handleRouterAuthentication() -> RouterError
     
-    func canhandle(parameters:[String:String]) -> RouterResult<UIViewController>
+    func canHandle(parameters:[String:String]) -> Bool
     
-    func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController>
+    @discardableResult func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController>
     
-    func handleCustomShow(sourceVC:UIViewController,targetVC:UIViewController) -> RouterResult<UIViewController>
+    @discardableResult func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController>
     
 }
 
 
 extension UIViewController :RouterProtocol {
     
-    func schemeForRouter() -> String {
+    public func schemeForRouter() -> String {
         RouterClassContainer.AssociatedKeys.defaultScheme
     }
     
-    func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
-        (RouterActionType.push,.rClass(clsName: NSStringFromClass(type(of: self))))
+    public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
+        (RouterActionType.push(true),.rClass(clsName: NSStringFromClass(type(of: self))))
     }
     
-    func handleRouterAuthentication() -> RouterError {
+    public func handleRouterAuthentication() -> RouterError {
         .noError
     }
 
-    func canhandle(parameters:[String:String]) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
+    public func canHandle(parameters:[String:String]) -> Bool {
+        true
     }
     
-    func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
+    @discardableResult public func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController> {
+        RouterResult.success(self)
     }
     
-    func handleCustomShow(sourceVC:UIViewController,targetVC:UIViewController) -> RouterResult<UIViewController> {
-        RouterResult(value: self, error: nil)
+    @discardableResult public func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController> {
+        RouterResult.success(self)
     }
 
 }

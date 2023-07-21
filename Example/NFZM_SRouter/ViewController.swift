@@ -9,13 +9,19 @@
 import UIKit
 import NFZM_SRouter
 
-class ViewController: UINavigationController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vc = RouterClassContainer.routerToVCName("TestVC")
-        if let target = vc {
-            self.pushViewController(target, animated: true)
+//        let vc = RouterClassContainer.routerToVCName("TestVC")
+//        if let target = vc {
+//            self.pushViewController(target, animated: true)
+//        }
+        RouterCore.gotoViewController(targetConfig: (RouterActionType.push(true),RouterVCType.rClass(clsName: "TestVC")), parameters:nil, sourceVC: self) { result, completion in
+            if result.isSuccess {
+                print(result.success.debugDescription)
+            }
+            completion(.doNotRetry)
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
