@@ -19,9 +19,10 @@ class ViewController: UIViewController {
 //        }
         RouterCore.gotoViewController(clsName: "TestVC", parameters:nil, sourceVC: self) { result, completion in
             if result.isSuccess {
-                print(result.success.debugDescription)
+                completion(.doNotRetry)
+            } else {
+                completion(.retryWithDelay(5.0))
             }
-            completion(.doNotRetry)
         }
         // Do any additional setup after loading the view, typically from a nib.
     }

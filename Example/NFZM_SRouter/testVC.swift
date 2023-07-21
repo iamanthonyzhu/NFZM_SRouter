@@ -11,6 +11,7 @@ import NFZM_SRouter
 
 class TestVC: UIViewController {
 
+    //static var testTime = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.red
@@ -35,7 +36,11 @@ extension TestVC:RouterProtocol {
     }
     
     public func handleRouterAuthentication() -> RouterError {
-        .noError
+//        if Self.testTime == 0 {
+//            Self.testTime = 1
+//            return .authFailure(.unlogin)
+//        }
+        return .noError
     }
 
     public func canHandle(parameters:[String:Any]?) -> Bool {

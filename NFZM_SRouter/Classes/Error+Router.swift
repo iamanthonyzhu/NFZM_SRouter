@@ -12,12 +12,9 @@ public enum RouterError: Error {
     public enum AuthFailureReason {
         case unlogin
     }
-    case authFailure(reason:AuthFailureReason)
+    case authFailure(_ reason:AuthFailureReason)
     case createFailure
     case handleJumpFailure
 }
 
-extension Error {
-    
-}
 
