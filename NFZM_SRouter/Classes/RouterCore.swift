@@ -36,14 +36,13 @@ extension RetryResult {
 
 }
 
-
 class RouterFactory {
-    static func createViewController(targetConfig:TargetConfig) -> UIViewController? {
-        let (_, vcType) = targetConfig
+    static func createViewController(vcType:RouterVCType) -> UIViewController? {
         switch vcType {
         case let .rClass(clsName):
-            let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-            let cls = NSClassFromString("\(namespace).\(clsName)") as? UIViewController.Type
+            //let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+            //let cls = NSClassFromString("\(namespace).\(clsName)") as? UIViewController.Type
+            let cls = NSClassFromString("\(clsName)") as? UIViewController.Type
             if let realCls = cls {
                 return realCls.init(nibName: nil, bundle: nil)
             }
@@ -60,28 +59,41 @@ class RouterFactory {
 
 
 public class RouterCore {
-    static public func gotoViewController(targetConfig:TargetConfig,
+    static public func gotoViewController(clsName:String,
                                  parameters:[String:Any]?,
                                  sourceVC:UIViewController,
                                  callback:@escaping RouterCallback) -> Void {
-        let vc = RouterFactory.createViewController(targetConfig: targetConfig)
-        
-        let retryBlock:(RetryResult) -> Void = { result in
+     let retryBlock:(RetryResult) -> Void = { result in
             switch result {
             case .doNotRetry:
                 return
             case .retry:
-                RouterCore.gotoViewController(targetConfig: targetConfig, parameters: parameters, sourceVC: sourceVC, callback: callback)
+                RouterCore.gotoViewController(clsName: clsName, parameters: parameters, sourceVC: sourceVC, callback: callback)
             case .retryWithDelay(let time):
                 DispatchQueue.main.after(time) {
-                    RouterCore.gotoViewController(targetConfig: targetConfig, parameters: parameters, sourceVC: sourceVC, callback: callback)
+                    RouterCore.gotoViewController(clsName:clsName, parameters: parameters, sourceVC: sourceVC, callback: callback)
                 }
             }
             
         }
-        if let targetVC = vc {
+        guard let cls = clsName.mainBundleRouterVC() else {
+            callback(RouterResult.failure(RouterError.createFailure),retryBlock)
+            return
+        }
+        
+        let (vcAct,vcType) = cls.targetConfigForRouter()
+        
+        let vc = RouterFactory.createViewController(vcType: vcType)
+        
+        if let targetVC = vc as? RouterProtocol {
             do {
-                try self.handleShow(sourceVC: sourceVC, targetVC: targetVC, actType: targetConfig.action)
+                if targetVC.canHandle(parameters: parameters) {
+                    let result:RouterResult = targetVC.handleRouter(parameters: parameters)
+                    if result.isFailure {
+                        throw RouterError.handleJumpFailure
+                    }
+                }
+                try self.handleShow(sourceVC: sourceVC, targetVC: targetVC, actType: vcAct)
                 callback(RouterResult.success(targetVC), retryBlock)
             } catch {
                 callback(RouterResult.failure(RouterError.handleJumpFailure),retryBlock)
@@ -107,7 +119,11 @@ public class RouterCore {
                 result = RouterResult.failure(RouterError.handleJumpFailure)
             }
         case .custom:
-            result = targetVC.handleCustomShow(sourceVC: sourceVC)
+            if let vc = targetVC as? RouterProtocol {
+                result = vc.handleCustomShow(sourceVC: sourceVC)
+            } else {
+                result = RouterResult.failure(RouterError.handleJumpFailure)
+            }
         }
         if result.isSuccess {
             return result.success!

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NFZM_SRouter
 
 class TestVC: UIViewController {
 
@@ -21,4 +22,31 @@ class TestVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+
+extension TestVC:RouterProtocol {
+    static public func schemeForRouter() -> String {
+        "NFZMSRouter"
+    }
+    
+    static public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
+        (RouterActionType.present(true),.rClass(clsName: NSStringFromClass(TestVC.self)))
+    }
+    
+    public func handleRouterAuthentication() -> RouterError {
+        .noError
+    }
+
+    public func canHandle(parameters:[String:Any]?) -> Bool {
+        true
+    }
+    
+    @discardableResult public func handleRouter(parameters:[String:Any]?) -> RouterResult<UIViewController> {
+        RouterResult.success(self)
+    }
+    
+    @discardableResult public func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController> {
+        RouterResult.success(self)
+    }
 }

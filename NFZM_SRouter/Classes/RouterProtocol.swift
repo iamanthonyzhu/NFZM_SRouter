@@ -19,47 +19,47 @@ public enum RouterActionType {
     case custom
 }
 
-public protocol RouterProtocol : AnyObject {
+public protocol RouterProtocol : UIViewController {
     
-    func schemeForRouter() -> String
+    static func schemeForRouter() -> String
     
-    func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType)
+    static func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType)
     
     func handleRouterAuthentication() -> RouterError
     
-    func canHandle(parameters:[String:String]) -> Bool
+    func canHandle(parameters:[String:Any]?) -> Bool
     
-    @discardableResult func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController>
+    @discardableResult func handleRouter(parameters:[String:Any]?) -> RouterResult<UIViewController>
     
     @discardableResult func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController>
     
 }
 
 
-extension UIViewController :RouterProtocol {
-    
-    public func schemeForRouter() -> String {
-        RouterClassContainer.AssociatedKeys.defaultScheme
-    }
-    
-    public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
-        (RouterActionType.push(true),.rClass(clsName: NSStringFromClass(type(of: self))))
-    }
-    
-    public func handleRouterAuthentication() -> RouterError {
-        .noError
-    }
-
-    public func canHandle(parameters:[String:String]) -> Bool {
-        true
-    }
-    
-    @discardableResult public func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController> {
-        RouterResult.success(self)
-    }
-    
-    @discardableResult public func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController> {
-        RouterResult.success(self)
-    }
-
-}
+//extension UIViewController :RouterProtocol {
+//    
+//    public func schemeForRouter() -> String {
+//        RouterClassContainer.AssociatedKeys.defaultScheme
+//    }
+//    
+//    public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
+//        (RouterActionType.push(true),.rClass(clsName: NSStringFromClass(type(of: self))))
+//    }
+//    
+//    public func handleRouterAuthentication() -> RouterError {
+//        .noError
+//    }
+//
+//    public func canHandle(parameters:[String:String]) -> Bool {
+//        true
+//    }
+//    
+//    @discardableResult public func handleRouter(parameters:[String:String]) -> RouterResult<UIViewController> {
+//        RouterResult.success(self)
+//    }
+//    
+//    @discardableResult public func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController> {
+//        RouterResult.success(self)
+//    }
+//
+//}

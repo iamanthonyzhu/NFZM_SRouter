@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 //        if let target = vc {
 //            self.pushViewController(target, animated: true)
 //        }
-        RouterCore.gotoViewController(targetConfig: (RouterActionType.push(true),RouterVCType.rClass(clsName: "TestVC")), parameters:nil, sourceVC: self) { result, completion in
+        RouterCore.gotoViewController(clsName: "TestVC", parameters:nil, sourceVC: self) { result, completion in
             if result.isSuccess {
                 print(result.success.debugDescription)
             }
