@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A1253D4F58BC2CDEBB4A98E3 /* Pods_NFZM_SRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7552C1263968CE66D66548C3 /* Pods_NFZM_SRouter_Example.framework */; };
+		B3FA6DF02A6921BD00ADFECF /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */; };
 		D719C61FFCA43BBE1BF08429 /* Pods_NFZM_SRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CBE20B952AF64B8E8BDA0C /* Pods_NFZM_SRouter_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		8E8C8C4401162C233E4852B7 /* Pods-NFZM_SRouter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Example.release.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8F72F14E55DE0CBD24401FE8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AFCA05CCB5ADCD97FCA3C72D /* Pods-NFZM_SRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Tests/Pods-NFZM_SRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		DECD1F2F2FF864166D0833F7 /* Pods-NFZM_SRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Tests.release.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Tests/Pods-NFZM_SRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FCC344186B60EF9129A297E2 /* Pods-NFZM_SRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Example.debug.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */,
 			);
 			name = "Example for NFZM_SRouter";
 			path = NFZM_SRouter;
@@ -170,7 +173,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				403728BDDDCB1E868F8C7A00 /* [CP] Embed Pods Frameworks */,
+				C271BE80861F02D73E7E4695 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,24 +265,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		403728BDDDCB1E868F8C7A00 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NFZM_SRouter/NFZM_SRouter.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFZM_SRouter.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		417F275BD50F3C1B082F98C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,6 +309,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C271BE80861F02D73E7E4695 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NFZM_SRouter/NFZM_SRouter.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFZM_SRouter.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				B3FA6DF02A6921BD00ADFECF /* TestVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +482,9 @@
 			baseConfigurationReference = FCC344186B60EF9129A297E2 /* Pods-NFZM_SRouter_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = NFZM_SRouter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -493,7 +499,9 @@
 			baseConfigurationReference = 8E8C8C4401162C233E4852B7 /* Pods-NFZM_SRouter_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = NFZM_SRouter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -516,6 +524,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,6 +543,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import NFZM_SRouter
 
-class ViewController: UIViewController {
+class ViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let vc = RouterClassContainer.routerToVCName("TestVC")
+        if let target = vc {
+            self.pushViewController(target, animated: true)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 

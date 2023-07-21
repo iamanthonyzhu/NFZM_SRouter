@@ -1,6 +1,6 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 target 'NFZM_SRouter_Example' do
   pod 'NFZM_SRouter', :path => '../'
