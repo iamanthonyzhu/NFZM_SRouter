@@ -87,6 +87,10 @@ public class RouterCore {
         
         if let targetVC = vc as? RouterProtocol {
             do {
+                let err = targetVC.handleRouterAuthentication()
+                guard case .noError = err else {
+                    throw err
+                }
                 if targetVC.canHandle(parameters: parameters) {
                     let result:RouterResult = targetVC.handleRouter(parameters: parameters)
                     if result.isFailure {
@@ -96,7 +100,8 @@ public class RouterCore {
                 try self.handleShow(sourceVC: sourceVC, targetVC: targetVC, actType: vcAct)
                 callback(RouterResult.success(targetVC), retryBlock)
             } catch {
-                callback(RouterResult.failure(RouterError.handleJumpFailure),retryBlock)
+               // callback(RouterResult.failure(RouterError.handleJumpFailure),retryBlock)
+                callback(RouterResult.failure(error as? RouterError ?? RouterError.handleJumpFailure),retryBlock)
             }
         } else {
             callback(RouterResult.failure(RouterError.createFailure),retryBlock)

@@ -15,6 +15,9 @@ public enum RouterError: Error {
     case authFailure(reason:AuthFailureReason)
     case createFailure
     case handleJumpFailure
+}
 
+extension Error {
+    
 }
 

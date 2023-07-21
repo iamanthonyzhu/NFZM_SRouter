@@ -31,7 +31,7 @@ extension TestVC:RouterProtocol {
     }
     
     static public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
-        (RouterActionType.present(true),.rClass(clsName: NSStringFromClass(TestVC.self)))
+        (RouterActionType.push(true),.rClass(clsName: NSStringFromClass(TestVC.self)))
     }
     
     public func handleRouterAuthentication() -> RouterError {
@@ -47,6 +47,8 @@ extension TestVC:RouterProtocol {
     }
     
     @discardableResult public func handleCustomShow(sourceVC:UIViewController) -> RouterResult<UIViewController> {
-        RouterResult.success(self)
+//        sourceVC.view.addSubview(self.view)
+//        self.view.backgroundColor = UIColor.blue
+        return RouterResult.success(self)
     }
 }
