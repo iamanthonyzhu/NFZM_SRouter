@@ -51,7 +51,7 @@ class RouterFactory {
                 return UIStoryboard(name: fileName, bundle: bundlePath).instantiateViewController(identifier:identifier)
             }
         case let .rXib(fileName,bundlePath):
-            return UIViewController.init(nibName: fileName, bundle: bundlePath)
+            return UIViewController.init(nibName: fileName, bundle:bundlePath)
         }
         return nil
     }
