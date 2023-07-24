@@ -21,7 +21,7 @@ public enum RouterActionType {
 
 public protocol RouterProtocol : UIViewController {
     
-    static func schemeForRouter() -> String
+    //static func schemeForRouter() -> String
     
     static func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType)
     

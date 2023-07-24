@@ -13,18 +13,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let vc = RouterClassContainer.routerToVCName("TestVC")
-//        if let target = vc {
-//            self.pushViewController(target, animated: true)
-//        }
-        RouterCore.gotoViewController(clsName: "TestVC", parameters:nil, sourceVC: self) { result, completion in
+        NZSRouterProxy.routerAction(strUrl: "NFZMSRouter://TestVC?abc=1&def=abc", parameters: ["ghi":12,"gfg":self]) { result, completion in
+        //NZSRouterProxy.routerDefaultAction(host: "TestVC", parameters: nil) { result, completion in
+            print(result)
+            guard let compBlock = completion else {
+                return
+            }
             if result.isSuccess {
-                completion(.doNotRetry)
+                compBlock(.doNotRetry)
             } else {
-                completion(.retryWithDelay(5.0))
+                //compBlock(.doNotRetry)
+                compBlock(.retryWithDelay(5.0))
             }
         }
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {

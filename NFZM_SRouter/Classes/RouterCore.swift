@@ -8,7 +8,7 @@
 import Foundation
 
 public typealias TargetConfig = (action:RouterActionType, vcType:RouterVCType)
-public typealias RouterCallback = (_ result:RouterResult<UIViewController>, _ completion: @escaping (RetryResult) -> Void) -> Void
+public typealias RouterCallback = (_ result:RouterResult<UIViewController>, _ completion:((RetryResult) -> Void)?) -> Void
 
 public enum RetryResult {
     /// Retry should be attempted immediately.

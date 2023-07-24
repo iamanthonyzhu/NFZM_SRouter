@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A1253D4F58BC2CDEBB4A98E3 /* Pods_NFZM_SRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7552C1263968CE66D66548C3 /* Pods_NFZM_SRouter_Example.framework */; };
 		B3FA6DF02A6921BD00ADFECF /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */; };
+		B3FEF1D42A6E55A2007CBED1 /* NZSRouterProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEF1D32A6E55A2007CBED1 /* NZSRouterProxy.swift */; };
 		D719C61FFCA43BBE1BF08429 /* Pods_NFZM_SRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CBE20B952AF64B8E8BDA0C /* Pods_NFZM_SRouter_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		8F72F14E55DE0CBD24401FE8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AFCA05CCB5ADCD97FCA3C72D /* Pods-NFZM_SRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Tests/Pods-NFZM_SRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		B3FEF1D32A6E55A2007CBED1 /* NZSRouterProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NZSRouterProxy.swift; sourceTree = "<group>"; };
 		DECD1F2F2FF864166D0833F7 /* Pods-NFZM_SRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Tests.release.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Tests/Pods-NFZM_SRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FCC344186B60EF9129A297E2 /* Pods-NFZM_SRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Example.debug.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				B3FA6DEF2A6921BD00ADFECF /* TestVC.swift */,
+				B3FEF1D32A6E55A2007CBED1 /* NZSRouterProxy.swift */,
 			);
 			name = "Example for NFZM_SRouter";
 			path = NFZM_SRouter;
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				B3FEF1D42A6E55A2007CBED1 /* NZSRouterProxy.swift in Sources */,
 				B3FA6DF02A6921BD00ADFECF /* TestVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ import NFZM_SRouter
 
 class TestVC: UIViewController {
 
-    //static var testTime = 0
+    static var testTime = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.red
@@ -27,19 +27,19 @@ class TestVC: UIViewController {
 
 
 extension TestVC:RouterProtocol {
-    static public func schemeForRouter() -> String {
-        "NFZMSRouter"
-    }
+//    static public func schemeForRouter() -> String {
+//        NZSRouterProxy.NZSPermitScheme.defaultScheme
+//    }
     
     static public func targetConfigForRouter() -> (action:RouterActionType, vcType:RouterVCType) {
         (RouterActionType.push(true),.rClass(clsName: NSStringFromClass(TestVC.self)))
     }
     
     public func handleRouterAuthentication() -> RouterError {
-//        if Self.testTime == 0 {
-//            Self.testTime = 1
-//            return .authFailure(.unlogin)
-//        }
+        if Self.testTime == 0 {
+            Self.testTime = 1
+            return .authFailure(.unLogin)
+        }
         return .noError
     }
 
