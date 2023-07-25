@@ -20,6 +20,7 @@
 		B3FEF1DC2A6E8A7C007CBED1 /* TestStoryboardVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FEF1DB2A6E8A7C007CBED1 /* TestStoryboardVC.storyboard */; };
 		B3FEF1DE2A6E8A93007CBED1 /* TestStoryboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEF1DD2A6E8A93007CBED1 /* TestStoryboardVC.swift */; };
 		B3FEF1E82A6E8ED2007CBED1 /* TestXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3FEF1E72A6E8ED2007CBED1 /* TestXibVC.xib */; };
+		B3FEF1FA2A6FCDF5007CBED1 /* NZSRouterProxyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FEF1F92A6FCDF5007CBED1 /* NZSRouterProxyBridge.swift */; };
 		D719C61FFCA43BBE1BF08429 /* Pods_NFZM_SRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CBE20B952AF64B8E8BDA0C /* Pods_NFZM_SRouter_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		B3FEF1DB2A6E8A7C007CBED1 /* TestStoryboardVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboardVC.storyboard; sourceTree = "<group>"; };
 		B3FEF1DD2A6E8A93007CBED1 /* TestStoryboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStoryboardVC.swift; sourceTree = "<group>"; };
 		B3FEF1E72A6E8ED2007CBED1 /* TestXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestXibVC.xib; sourceTree = "<group>"; };
+		B3FEF1F92A6FCDF5007CBED1 /* NZSRouterProxyBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NZSRouterProxyBridge.swift; sourceTree = "<group>"; };
 		DECD1F2F2FF864166D0833F7 /* Pods-NFZM_SRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Tests.release.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Tests/Pods-NFZM_SRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FCC344186B60EF9129A297E2 /* Pods-NFZM_SRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFZM_SRouter_Example.debug.xcconfig"; path = "Target Support Files/Pods-NFZM_SRouter_Example/Pods-NFZM_SRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 		607FACD21AFB9204008FA782 /* Example for NFZM_SRouter */ = {
 			isa = PBXGroup;
 			children = (
+				B3FEF1F92A6FCDF5007CBED1 /* NZSRouterProxyBridge.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				B3FEF1DD2A6E8A93007CBED1 /* TestStoryboardVC.swift */,
@@ -356,6 +359,7 @@
 				B3FA6DF02A6921BD00ADFECF /* TestVC.swift in Sources */,
 				B3FEF1DE2A6E8A93007CBED1 /* TestStoryboardVC.swift in Sources */,
 				B3FEF1DA2A6E7512007CBED1 /* TestXibVC.swift in Sources */,
+				B3FEF1FA2A6FCDF5007CBED1 /* NZSRouterProxyBridge.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
