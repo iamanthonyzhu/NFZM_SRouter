@@ -22,7 +22,7 @@ pod 'NFZM_SRouter'
 
 ## Author
 
-朱伟, zhuWei@infzm.com
+朱伟, iamanthonyzhu@163.com
 
 ## License
 
